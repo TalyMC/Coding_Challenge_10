@@ -1,0 +1,2 @@
+# Coding Challenge 10
+Practicing JavaScript class-based object-oriented programming (OOP) skills by working with class structures, inheritance, and methods in a business-related inventory management system.
