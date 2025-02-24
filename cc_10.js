@@ -48,6 +48,8 @@ console.log(prod1.getDetails());
 class Inventory {
     constructor(products) {
         this.products = [];
+        //Task 4 Implementing Order Management
+        this.orders = [];
     };
     addProduct(product) {
         this.products.push(product);
@@ -55,9 +57,29 @@ class Inventory {
     listProducts(){
         this.products.forEach(product => console.log(product.getDetails()));
     };
+
+    // //Task 4 Implementing Order Management
+    placeOrder(orderId, product, quantity) {
+        if (product.stock >= quantity) {
+            const order = new Order(orderId, product, quantity); // new order
+            this.orders.push(order);}
+    };
+    listOrders() {
+        this.orders.forEach(order => {
+            console.log(order.getOrderDetails());
+        });
+    };
 };
 
 const inventory = new Inventory();
 inventory.addProduct(prod1);
 inventory.listProducts();
 // Expected output: "Product: Laptop, ID: 101, Price: $1200, Stock: 5"
+
+
+//Task 4
+inventory.placeOrder(601, prod1, 2);
+inventory.listOrders();
+// Expected output: "Order ID: 601, Product: Laptop, Quantity: 2, Total Price: $2400"
+console.log(prod1.getDetails());
+// Expected output: "Product: Laptop, ID: 101, Price: $1200, Stock: 3"
